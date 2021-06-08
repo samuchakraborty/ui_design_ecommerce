@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design/constant.dart';
-import 'package:ui_design/widgets/custom_seller_buyer.dart';
+
+import 'Buyer/account/SignUp.dart';
+import 'widgets/CustomButton.dart';
+import 'widgets/custom_seller_buyer.dart';
 
 class SellerOrBuyer extends StatefulWidget {
   @override
@@ -11,14 +14,15 @@ class SellerOrBuyer extends StatefulWidget {
 enum PROFILE { SELLER, BUYER }
 
 class _SellerOrBuyerState extends State<SellerOrBuyer> {
-   PROFILE? selectedProfile ;
+  PROFILE? selectedProfile;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(top: 140, left: 40, right: 30),
-        child: Column(
+        height: MediaQuery.of(context).size.height,
+        child: ListView(
           children: [
             Container(
               alignment: Alignment.topCenter,
@@ -37,21 +41,22 @@ class _SellerOrBuyerState extends State<SellerOrBuyer> {
             Row(
               children: [
                 GestureDetector(
-
-                  onTap: (){
-
+                  onTap: () {
                     setState(() {
                       selectedProfile = PROFILE.BUYER;
                     });
                   },
-
                   child: CustomSellerBuyer(
                     containerHeight: 200,
                     containerWidth: 160,
-                    textColor:  selectedProfile == PROFILE.BUYER ? Colors.white : Colors.black,
+                    textColor: selectedProfile == PROFILE.BUYER
+                        ? Colors.white
+                        : Colors.black,
                     borderColor: Colors.white,
                     icon: Icons.opacity,
-                    backgroundColor:    selectedProfile == PROFILE.BUYER ? Colors.indigoAccent : Colors.white,
+                    backgroundColor: selectedProfile == PROFILE.BUYER
+                        ? Colors.indigoAccent
+                        : Colors.white,
                     textName: 'Buyer',
                   ),
                 ),
@@ -59,20 +64,22 @@ class _SellerOrBuyerState extends State<SellerOrBuyer> {
                   width: 40,
                 ),
                 GestureDetector(
-                  onTap: (){
-
+                  onTap: () {
                     setState(() {
                       selectedProfile = PROFILE.SELLER;
                     });
                   },
-
                   child: CustomSellerBuyer(
                     containerHeight: 200,
                     containerWidth: 160,
-                    textColor: selectedProfile == PROFILE.SELLER? Colors.white : Colors.black,
+                    textColor: selectedProfile == PROFILE.SELLER
+                        ? Colors.white
+                        : Colors.black,
                     borderColor: Colors.black87,
                     icon: Icons.opacity,
-                    backgroundColor:  selectedProfile == PROFILE.SELLER? Colors.indigoAccent : Colors.white,
+                    backgroundColor: selectedProfile == PROFILE.SELLER
+                        ? Colors.indigoAccent
+                        : Colors.white,
                     textName: 'Seller',
                   ),
                 ),
@@ -81,30 +88,16 @@ class _SellerOrBuyerState extends State<SellerOrBuyer> {
             SizedBox(
               height: 60,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'Continue',
-                style: TextStyle(fontSize: 24, fontFamily: 'Poppins'),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.red),
-                fixedSize: MaterialStateProperty.all(
-                  Size(
-                    MediaQuery.of(context).size.width,
-                    60,
-                  ),
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.red))),
-              ),
-            ),
+            CustomButton(
+              buttonName: 'Continue',
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => SignUp()));
+              },
+            )
           ],
         ),
       ),
     );
   }
-
 }
