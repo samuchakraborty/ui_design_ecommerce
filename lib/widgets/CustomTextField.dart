@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
   final String labelName;
   final String hintTextName;
  final TextInputType textInputType;
-  // ignore: non_constant_identifier_names
+
   final ValueChanged  onChangedFunction;
 
   final Function()? onPressed;
