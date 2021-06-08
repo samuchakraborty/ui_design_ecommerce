@@ -2,7 +2,7 @@ import 'dart:async';
 
 
 import 'package:flutter/material.dart';
-import 'package:ui_design/SecondPage.dart';
+import 'package:ui_design/SellerOrBuyer.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-      
+      primaryColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
       home:SplashScreen(),
