@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design/Buyer/account/LogIn.dart';
+import 'package:ui_design/Buyer/screens/HomePage.dart';
 import 'package:ui_design/widgets/CustomButton.dart';
 import 'package:ui_design/widgets/CustomTextField.dart';
 
@@ -83,8 +84,8 @@ class _SignUpState extends State<SignUp> {
             CustomButton(
               buttonName: 'SIGN UP',
               onPressed: () {
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (context) => SignUp(),),);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => HomePage(),),);
               },
             ),
 
