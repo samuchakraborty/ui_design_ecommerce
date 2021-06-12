@@ -4,14 +4,14 @@ import 'package:ui_design/Buyer/widgets/ViewAll.dart';
 import 'package:ui_design/Buyer/widgets/categoryWidgets.dart';
 import 'package:ui_design/Buyer/widgets/productWidgets.dart';
 
+import 'ProductPage.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   List<Product> reversedProduct = products.reversed.toList();
 
   @override
@@ -113,19 +113,29 @@ class _HomePageState extends State<HomePage> {
             height: 214,
             margin: EdgeInsets.only(left: 20, right: 10),
             child: ListView.builder(
-
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: products.length,
-              itemBuilder: (context, index){
-
-                return ProductWidgets(image: products[index].image, price: products[index].price, productName: products[index].productName,);
-
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => ProductPage(
+                          product: products[index],
+                        ),
+                      ),
+                    );
+                  },
+                  child:  ProductWidgets(
+                  image: products[index].image,
+                  price: products[index].price,
+                  productName: products[index].productName,
+                ),);
               },
             ),
           ),
-
-
 
           SizedBox(
             height: 20,
@@ -140,18 +150,30 @@ class _HomePageState extends State<HomePage> {
             height: 214,
             margin: EdgeInsets.only(left: 20, right: 10),
             child: ListView.builder(
-
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: reversedProduct.length,
-              itemBuilder: (context, index){
-
-                return ProductWidgets(image: reversedProduct[index].image, price: reversedProduct[index].price, productName: reversedProduct[index].productName,);
-
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => ProductPage(
+                          product: reversedProduct[index],
+                        ),
+                      ),
+                    );
+                  },
+                  child: ProductWidgets(
+                    image: reversedProduct[index].image,
+                    price: reversedProduct[index].price,
+                    productName: reversedProduct[index].productName,
+                  ),
+                );
               },
             ),
           ),
-
         ],
       ),
     );
