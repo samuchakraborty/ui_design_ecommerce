@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 class ProductWidgets extends StatelessWidget {
@@ -37,7 +38,7 @@ class ProductWidgets extends StatelessWidget {
               Positioned(
                 top: 10,
                 right: 16,
-                child: Icon(Icons.add, size: 30,),
+                child: Icon(EvaIcons.heartOutline, size: 30,),
               ),
             ],
           ),
