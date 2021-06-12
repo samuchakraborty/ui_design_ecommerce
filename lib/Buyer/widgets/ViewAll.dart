@@ -16,7 +16,7 @@ class ViewAll extends StatelessWidget {
           Text(
             itemName,
             style: TextStyle(
-                color: Colors.red, fontFamily: 'Poppins', fontSize: 20),
+                color: Colors.red.shade800, fontFamily: 'Poppins', fontSize: 20),
           ),
           Text(
             'View all',

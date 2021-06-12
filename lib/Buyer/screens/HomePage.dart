@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ui_design/Buyer/models/itemModel.dart';
 import 'package:ui_design/Buyer/widgets/ViewAll.dart';
 import 'package:ui_design/Buyer/widgets/categoryWidgets.dart';
+import 'package:ui_design/Buyer/widgets/productWidgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,6 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
+  List<Product> reversedProduct = products.reversed.toList();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,11 +62,15 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 10,
           ),
-          ViewAll( itemName:
-            'Categories',),
+          ViewAll(
+            itemName: 'Categories',
+          ),
+          SizedBox(
+            height: 10,
+          ),
           //
           Container(
-            height: 150,
+            height: 80,
             margin: EdgeInsets.only(left: 20, right: 10),
             child: ListView(
               shrinkWrap: true,
@@ -91,42 +101,56 @@ class _HomePageState extends State<HomePage> {
           ),
 
           SizedBox(
-            height: 10,
+            height: 20,
           ),
-          ViewAll( itemName:
-          'New Collection',),
-
+          ViewAll(
+            itemName: 'New Collection',
+          ),
+          SizedBox(
+            height: 20,
+          ),
           Container(
-            height: 150,
+            height: 214,
             margin: EdgeInsets.only(left: 20, right: 10),
-            child: ListView(
+            child: ListView.builder(
+
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              children: [
-                CategoryWidgets(
-                    image: 'assets/images/female.webp',
-                    labelText: 'Women',
-                    color: Colors.grey.withOpacity(.61)),
-                SizedBox(
-                  width: 10,
-                ),
-                CategoryWidgets(
-                  image: 'assets/images/man.png',
-                  labelText: 'Man',
-                  color: Colors.redAccent.withOpacity(.61),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                CategoryWidgets(
-                  image: 'assets/images/child.jpg',
-                  labelText: 'Child',
-                  color: Colors.greenAccent.withOpacity(.61),
-                ),
-              ],
+              itemCount: products.length,
+              itemBuilder: (context, index){
+
+                return ProductWidgets(image: products[index].image, price: products[index].price, productName: products[index].productName,);
+
+              },
             ),
           ),
 
+
+
+          SizedBox(
+            height: 20,
+          ),
+          ViewAll(
+            itemName: 'Featured',
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 214,
+            margin: EdgeInsets.only(left: 20, right: 10),
+            child: ListView.builder(
+
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: reversedProduct.length,
+              itemBuilder: (context, index){
+
+                return ProductWidgets(image: reversedProduct[index].image, price: reversedProduct[index].price, productName: reversedProduct[index].productName,);
+
+              },
+            ),
+          ),
 
         ],
       ),

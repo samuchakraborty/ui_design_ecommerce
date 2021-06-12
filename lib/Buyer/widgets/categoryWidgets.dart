@@ -15,8 +15,8 @@ final Color color;
     return Stack(
       children: <Widget>[
         Container(
-          width: 160,
-          height: 160,
+          width: 180,
+          height: 80,
           decoration: BoxDecoration(
             //shape: BoxShape.circle,
             borderRadius: BorderRadius.all(
@@ -35,17 +35,17 @@ final Color color;
           // ),
         ),
         Positioned(
-          top: 60,
+          top: 30,
 //right: 90,
-          left: 40,
+          left: 50,
           child: Text(
            labelText,
-            style: TextStyle(fontSize: 30, color: Colors.red),
+            style: TextStyle(fontSize: 20, color: Colors.blueAccent),
           ),
         ),
         Container(
-          width: 160,
-          height: 160,
+          width: 180,
+          height: 80,
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.all(
