@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import '../../constant.dart';
+import 'CheckOutPage.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -215,7 +215,8 @@ class CartPage extends StatelessWidget {
                               Container(
                                 height: 100,
                                 width: 150,
-                                child: Image.asset('assets/product/camera.webp'),
+                                child:
+                                    Image.asset('assets/product/camera.webp'),
                               ),
                               Column(
                                 children: [
@@ -300,9 +301,10 @@ class CartPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Container(
-                    // height: 100,
+                      // height: 100,
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
+                      margin: EdgeInsets.only(
+                          left: 20, right: 20, top: 20, bottom: 20),
                       // decoration: BoxDecoration(
                       //
                       //
@@ -317,20 +319,24 @@ class CartPage extends StatelessWidget {
 
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                       crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                      alignment: Alignment.center,
-                              width: 140,
-                              height: 50,
-                              child: Text('Have a promo code', style: TextStyle(fontSize: 15),),),
-
-                          SizedBox(width: 20,),
+                            alignment: Alignment.center,
+                            width: 140,
+                            height: 50,
+                            child: Text(
+                              'Have a promo code',
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
                           Container(
                             width: 190,
                             height: 50,
                             decoration: BoxDecoration(
-
                               border: Border.all(color: Colors.green),
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(14),
@@ -363,29 +369,23 @@ class CartPage extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: 40,
-                            height: 50,
-                            decoration: BoxDecoration(
-color: Colors.indigo,
-                              border: Border.all(color: Colors.green),
-                              borderRadius: BorderRadius.only(
-                                //topLeft: Radius.circular(14),
-                                topRight: Radius.circular(14),
-                                bottomRight: Radius.circular(14),
-                                //bottomLeft: Radius.circular(14),
+                              width: 40,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.indigo,
+                                border: Border.all(color: Colors.green),
+                                borderRadius: BorderRadius.only(
+                                  //topLeft: Radius.circular(14),
+                                  topRight: Radius.circular(14),
+                                  bottomRight: Radius.circular(14),
+                                  //bottomLeft: Radius.circular(14),
+                                ),
                               ),
-                            ),
-                            child: Icon(CupertinoIcons.chevron_right)
-                          ),
-
+                              child: Icon(CupertinoIcons.chevron_right)),
                         ],
                       ),
                     ),
                   ),
-
-
-
-
                   Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
@@ -394,8 +394,8 @@ color: Colors.indigo,
                     child: Container(
                       // height: 100,
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
-
+                      margin: EdgeInsets.only(
+                          left: 20, right: 20, top: 20, bottom: 20),
 
                       child: Column(
                         children: [
@@ -403,61 +403,66 @@ color: Colors.indigo,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             //crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                             Text('No of Item'),
-
+                              Text('No of Item'),
                               Text('0'),
-
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             //crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('Subtotal'),
-
                               Text('%30'),
-
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             //crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('Shipping'),
-
                               Text('\$ 20'),
-
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             //crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('Estimated Tax'),
-
                               Text('\$ 12'),
-
                             ],
                           ),
-
                         ],
                       ),
                     ),
                   ),
-
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Container(
                     alignment: Alignment.center,
                     width: 200,
                     margin: EdgeInsets.only(left: 100),
                     child: ElevatedButton(
                       style: buttonStyleContinue,
-                      child:Text( 'CHECKOUT', style: TextStyle(fontSize: 24, fontFamily: 'Poppins'),),
-                      onPressed: (){
-
+                      child: Text(
+                        'CHECKOUT',
+                        style: TextStyle(fontSize: 24, fontFamily: 'Poppins'),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CheckOutPage()),
+                        );
                       },
                     ),
                   ),

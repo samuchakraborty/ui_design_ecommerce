@@ -9,7 +9,7 @@ fontFamily: 'Poppins'
 
 
  ButtonStyle buttonStyleContinue = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all(Colors.red),
+  backgroundColor: MaterialStateProperty.all(Colors.red.shade800),
   fixedSize: MaterialStateProperty.all(
     Size(
       400,
