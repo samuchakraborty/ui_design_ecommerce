@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_design/Buyer/models/itemModel.dart';
+import 'package:ui_design/Buyer/widgets/ShoppingCart.dart';
+import 'package:ui_design/Buyer/widgets/UserDrawer.dart';
 import 'package:ui_design/Buyer/widgets/ViewAll.dart';
 import 'package:ui_design/Buyer/widgets/categoryWidgets.dart';
 import 'package:ui_design/Buyer/widgets/productWidgets.dart';
@@ -17,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: UserDrawer(),
       appBar: AppBar(
         elevation: 0,
         //  automaticallyImplyLeading: false,
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Row(
             children: [
-              Icon(Icons.shop_2_outlined),
+              ShoppingCartIcon(),
               SizedBox(
                 width: 10,
               ),
@@ -128,11 +130,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   },
-                  child:  ProductWidgets(
-                  image: products[index].image,
-                  price: products[index].price,
-                  productName: products[index].productName,
-                ),);
+                  child: ProductWidgets(
+                    image: products[index].image,
+                    price: products[index].price,
+                    productName: products[index].productName,
+                  ),
+                );
               },
             ),
           ),

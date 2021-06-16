@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:ui_design/Buyer/models/itemModel.dart';
+import 'package:ui_design/Buyer/widgets/ShoppingCart.dart';
 import 'package:ui_design/widgets/CustomButton.dart';
 
 class ProductPage extends StatefulWidget {
@@ -25,7 +26,8 @@ class _ProductPageState extends State<ProductPage> {
         actions: [
           Row(
             children: [
-              Icon(Icons.shop_2_outlined),
+              ShoppingCartIcon(),
+
               SizedBox(
                 width: 10,
               ),
