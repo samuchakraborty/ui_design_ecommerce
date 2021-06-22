@@ -21,3 +21,5 @@ fontFamily: 'Poppins'
           borderRadius: BorderRadius.circular(18.0),
           side: BorderSide(color: Colors.red))),
 );
+
+ const emailTextStyle = TextStyle(fontFamily: 'Poppins', fontSize: 15);

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_design/Buyer/account/AccountPage.dart';
+
+import '../../constant.dart';
 
 class UserDrawer extends StatelessWidget {
   const UserDrawer({Key? key}) : super(key: key);
@@ -47,16 +50,13 @@ class UserDrawer extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "Samu Chakraborty",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 15),
-                      ),
+                      Text("Samu Chakraborty", style: emailTextStyle),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
                         "samuckb@gmail.com",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 15),
+                        style: emailTextStyle,
                       )
                     ],
                   )
@@ -68,13 +68,22 @@ class UserDrawer extends StatelessWidget {
             height: 30,
           ),
           CustomDrawerItem(
+            isOptional: false,
             icon: CupertinoIcons.person_alt,
             labelText: 'My Account',
+            route: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => AccountPage(),
+                ),
+              );
+            },
           ),
           SizedBox(
             height: 10,
           ),
           CustomDrawerItem(
+            isOptional: false,
             icon: CupertinoIcons.flag,
             labelText: 'New Collection',
           ),
@@ -82,6 +91,7 @@ class UserDrawer extends StatelessWidget {
             height: 10,
           ),
           CustomDrawerItem(
+            isOptional: false,
             icon: CupertinoIcons.square_favorites_fill,
             labelText: 'Categories',
           ),
@@ -89,6 +99,7 @@ class UserDrawer extends StatelessWidget {
             height: 10,
           ),
           CustomDrawerItem(
+            isOptional: false,
             icon: CupertinoIcons.mail,
             labelText: 'Message',
           ),
@@ -96,6 +107,7 @@ class UserDrawer extends StatelessWidget {
             height: 10,
           ),
           CustomDrawerItem(
+            isOptional: false,
             icon: CupertinoIcons.settings,
             labelText: 'Settings',
           ),
@@ -134,32 +146,56 @@ class UserDrawer extends StatelessWidget {
 }
 
 class CustomDrawerItem extends StatelessWidget {
-  CustomDrawerItem({required this.labelText, required this.icon});
+  CustomDrawerItem(
+      {required this.labelText,
+      required this.isOptional,
+      this.route,
+      required this.icon,
+      this.iconsOptional});
 
   final IconData icon;
   final String labelText;
+  final IconData? iconsOptional;
+  final bool isOptional;
+  final Function()? route;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 40),
-      padding: EdgeInsets.all(10),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        //  mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon),
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            labelText,
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                fontWeight: FontWeight.w500),
-          )
-        ],
+    return GestureDetector(
+      onTap: route,
+      child: Container(
+        margin:
+            isOptional == false ? EdgeInsets.only(left: 40) : EdgeInsets.all(0),
+        padding: isOptional == false ? EdgeInsets.all(10) : EdgeInsets.all(0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          //  mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              labelText,
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Icon(iconsOptional),
+              ),
+            ),
+            // SizedBox(
+            //   width: 10,
+            // ),
+          ],
+        ),
       ),
     );
   }
