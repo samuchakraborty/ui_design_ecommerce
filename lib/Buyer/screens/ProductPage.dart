@@ -2,7 +2,10 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:ui_design/Buyer/models/itemModel.dart';
+import 'package:ui_design/Buyer/provider/store.dart';
 import 'package:ui_design/Buyer/widgets/ShoppingCart.dart';
 import 'package:ui_design/widgets/CustomButton.dart';
 
@@ -27,7 +30,6 @@ class _ProductPageState extends State<ProductPage> {
           Row(
             children: [
               ShoppingCartIcon(),
-
               SizedBox(
                 width: 10,
               ),
@@ -346,7 +348,10 @@ class _ProductPageState extends State<ProductPage> {
                 alignment: FractionalOffset.bottomCenter,
                 child: CustomButton(
                   buttonName: 'ADD TO CART',
-                  onPressed: () {},
+                  onPressed: () {
+                    print(widget.product);
+                    context.read(cartNotifier).addOneItemIntoBasket(widget.product);
+                  },
                   icons: EvaIcons.shoppingCart,
                 ),
               ),

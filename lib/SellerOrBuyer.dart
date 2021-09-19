@@ -48,7 +48,7 @@ class _SellerOrBuyerState extends State<SellerOrBuyer> {
                   },
                   child: CustomSellerBuyer(
                     containerHeight: 200,
-                    containerWidth: 160,
+                    containerWidth: MediaQuery.of(context).size.width/3,
                     textColor: selectedProfile == PROFILE.BUYER
                         ? Colors.white
                         : Colors.black,
@@ -71,7 +71,7 @@ class _SellerOrBuyerState extends State<SellerOrBuyer> {
                   },
                   child: CustomSellerBuyer(
                     containerHeight: 200,
-                    containerWidth: 160,
+                    containerWidth: MediaQuery.of(context).size.width/3,
                     textColor: selectedProfile == PROFILE.SELLER
                         ? Colors.white
                         : Colors.black,
